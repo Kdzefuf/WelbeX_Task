@@ -1,0 +1,11 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  margin-top: 120px;
+  padding-bottom: 50px;
+  background-color: var(--color-DarkSlateBlue);
+}

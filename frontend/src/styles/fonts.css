@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  /* св-ва padding */
+  --px30-padding: max(15px, 1.563vw);
+
+  /* Простые прописанные резиновые размеры */
+  --px25width: max(25px, 1.3vw);
+
+  /* св-ва font-size */
+  --font-size12px: max(0.625vw, 8px);
+  --font-size14px: max(0.729vw, 10px);
+  --font-size20px: max(1.042vw, 14px);
+  --font-size24px: max(1.250vw, 16px);
+  --font-size36px: max(1.875vw, 20px);
+  --font-size40px: max(2.082vw, 24px);
+  --font-size48px: max(2.5vw, 28px);
+  --font-size60px: max(3.125vw, 36px);
+
+  /* св-ва line-height */
+  --line-heigth16px: 1.481vh;
+  --line-heigth24px: 2.222vh;
+  --line-heigth29px: 2.685vh;
+  --line-heigth43px: 3.981vh;
+  --line-heigth72px: 6.667vh;
+
+  /* св-ва font-weigth */
+  --font-weigth400: 400;
+  --font-weight500: 500;
+  --font-weight600: 600;
+  --font-weight700: 700;
+
+  /* св-ва border-radius */
+  --border-radius20px: 20px;
+  --border-radius40px: 40px;
+  --border-radius15px: 15px;
+
+  /* св-ва color */
+  --color-White: rgba(255, 255, 255, 1);
+  --color-transparent: transparent;
+  --color-CharcoalBlue: rgba(46, 46, 79, 1);
+  --color-DarkSlateBlue: rgba(30, 30, 50, 1);
+
+  /* св-ва font-family */
+  --font-familyInter: Inter, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+html, body, #root, .page {
+  height: 100%;
+}

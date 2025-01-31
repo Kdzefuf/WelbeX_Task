@@ -1,0 +1,36 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: visible;
+    padding: 0 3.385vw;
+    background-color: var(--color-CharcoalBlue);
+    width: 100vw;
+    max-height: 15.185vh;
+    min-height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    margin-bottom: 40px;
+}
+
+.sighFormHeader {
+    position: relative;
+    overflow: visible;
+    padding: 0 3.385vw;
+    background-color: var(--color-CharcoalBlue);
+    width: 100vw;
+    height: 15.185vh;
+    min-height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 9.479vw;
+    z-index: 1000;
+    margin-bottom: 40px;
+}

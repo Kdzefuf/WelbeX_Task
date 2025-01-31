@@ -1,0 +1,41 @@
+.PostsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 47px;
+    width: 100%;
+
+}
+
+.postsList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.title {
+    font-size: var(--font-size24px);
+    font-family: var(--font-familyInter);
+    font-weight: var(--font-weigth400);
+    line-height: var(--line-heigth29px);
+    text-align: center;
+    color: var(--color-White);
+}
+
+
+.labelGroup {
+    width: 100%;
+    padding: 0 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}

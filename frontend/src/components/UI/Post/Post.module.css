@@ -1,0 +1,76 @@
+.post {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5vw;
+    flex-wrap: nowrap;
+    position: relative;
+
+    background-color: var(--color-CharcoalBlue);
+
+    width: 100%;
+    min-height: calc(var(--px30-padding) + 100px);
+
+    border-radius: var(--border-radius40px);
+
+    padding: var(--px30-padding) calc(var(--px30-padding) + 10px);
+}
+
+.avatar {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--px25width);
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+}
+
+.titleContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.title {
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size24px);
+    font-weight: var(--font-weigth700);
+    line-height: var(--line-heigth29px);
+    text-align: left;
+    color: var(--color-White);
+}
+
+.descr {
+    width: fit-content;
+    font-size: var(--font-size20px);
+    font-family: var(--font-familyInter);
+    font-weight: var(--font-weigth400);
+    line-height: var(--line-heigth24px);
+    text-align: left;
+    color: var(--color-White);
+}
+
+.deleteButton {
+    position: absolute;
+    right: var(--px30-padding);
+    top: var(--px30-padding);
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size20px);
+    font-weight: var(--font-weigth700);
+    line-height: var(--line-heigth24px);
+    text-align: center;
+    color: var(--color-White);
+    background-image: url(../../../images/download.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

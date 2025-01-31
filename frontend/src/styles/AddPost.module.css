@@ -1,0 +1,86 @@
+.content {
+    background-color: var(--color-CharcoalBlue);
+    width: 54.896vw;
+    min-width: 600px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 4vh;
+
+    border-radius: var(--border-radius40px);
+
+    padding: 5vh 5vw;
+}
+
+.title {
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size36px);
+    font-weight: var(--font-weight700);
+    line-height: var(--line-heigth43px);
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    text-align: center;
+    color: var(--color-White);
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 4vh;
+    height: 100%;
+}
+
+.label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: nowrap;
+
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size24px);
+    font-weight: var(--font-weight400);
+    line-height: var(--line-heigth29px);
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: var(--color-White);
+}
+
+.addPost {
+    background-color: transparent;
+    border: 2px white solid;
+    border-radius: var(--border-radius20px);
+    padding: 5px 20px;
+    width: 100%;
+
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size20px);
+    font-weight: var(--font-weigth400);
+    line-height: var(--line-heigth24px);
+    text-align: left;
+    color: var(--color-White);
+}
+
+.moders1 {
+    height: 8vh;
+    min-height: 40px;
+}
+
+.moders2 {
+    height: 13vh;
+    min-height: 60px;
+}
+
+.moders3 {
+    height: 40px;
+}

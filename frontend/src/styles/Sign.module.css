@@ -1,0 +1,43 @@
+.signInForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 3.333vh;
+
+    max-height: 75.315vh;
+    min-width: 44.271vw;
+
+    border-radius: var(--border-radius40px);
+
+    padding: 4.907vh 3.125vw;
+    background-color: var(--color-CharcoalBlue);
+}
+
+.title {
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size36px);
+    font-weight: var(--font-weight700);
+    line-height: var(--line-heigth43px);
+    text-align: center;
+    color: var(--color-White);
+}
+
+.descr {
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size20px);
+    font-weight: var(--font-weight400);
+    line-height: var(--line-heigth24px);
+    text-align: left;
+    color: var(--color-White);
+}
+
+.link {
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size20px);
+    font-weight: var(--font-weight700);
+    line-height: var(--line-heigth24px);
+    text-align: left;
+    color: var(--color-White);
+}
