@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import classes from './Post.module.css'
 import Button from "../Button/Button";
 import DeletePost from "../../../API/DeletePost";
+import UpdatePost from "../../UpdatePost";
+import GetUserInfo from "../../../API/GetUserInfo";
 
 /**
  * Функциональный компонент, представляющий собой публикацию в приложении для социальных сетей.
@@ -19,8 +21,23 @@ import DeletePost from "../../../API/DeletePost";
  */
 function Post(props) {
   const [user, setAuthor] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
   const date = new Date(props.date);
   const formattedDate = formatDate(date);
+
+  const [currentUserId, setCurrentUserId] = useState(null);
+
+  useEffect(() => {
+    const currentUserToken = JSON.parse(localStorage.getItem('userData')).token;
+
+    GetUserInfo.getUserId(currentUserToken)
+      .then((userId) => {
+        setCurrentUserId(userId);
+      })
+      .catch((error) => {
+        console.error('Ошибка при получении ID пользователя:', error);
+      });
+  }, []);
 
   useEffect(() => {
     setAuthor(props.userId)
@@ -41,17 +58,40 @@ function Post(props) {
     }
   };
 
+  const tryEdit = (e) => {
+    e.preventDefault();
+    setIsEditing(true); 
+  };
+
+  const closeEdit = () => {
+    setIsEditing(false);  
+  };
+
   return (
     <li className={classes[props.currentClass]} key={props.key}>
-      <img className={classes.avatar} src={props.avatar} alt="аватар профиля пользователя" />
-      <div className={classes.content}>
-        <div className={classes.titleContainer}>
-          <h3 className={classes.title}>{props.title}</h3>
-          <p className={classes.title}> {formattedDate} </p>
-        </div>
-        <p className={classes.descr}> {props.content} </p>
-      </div>
-      <button className={classes.deleteButton} onClick={tryDelete}>Удалить</button>
+      {isEditing ? (
+        <UpdatePost 
+          post={props} 
+          onClose={closeEdit}
+        />
+      ) : (
+        <>
+          <img className={classes.avatar} src={props.avatar} alt="аватар профиля пользователя" />
+          <div className={classes.content}>
+            <div className={classes.titleContainer}>
+              <h3 className={classes.title}>{props.title}</h3>
+              <p className={classes.title}> {formattedDate} </p>
+            </div>
+            <p className={classes.descr}> {props.content} </p>
+          </div>
+          {currentUserId === props.userId && (
+            <div className={classes.actions}>
+              <button className={classes.editButton} onClick={tryEdit}>Изменить</button>
+              <button className={classes.deleteButton} onClick={tryDelete}>Удалить</button>
+            </div>
+          )}
+        </>
+      )}
     </li>
   )
 }

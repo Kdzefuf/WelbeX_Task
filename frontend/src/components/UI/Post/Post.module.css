@@ -74,3 +74,21 @@
     border: none;
     cursor: pointer;
 }
+
+.editButton {
+    position: absolute;
+    right: 100px;
+    top: var(--px30-padding);
+    font-family: var(--font-familyInter);
+    font-size: var(--font-size20px);
+    font-weight: var(--font-weigth700);
+    line-height: var(--line-heigth24px);
+    text-align: center;
+    color: var(--color-White);
+    background-image: url(../../../images/download.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

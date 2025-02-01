@@ -53,6 +53,10 @@
   list-style-type: none;
 }
 
-html, body, #root, .page {
+html {
+  min-height: 100%;
+}
+
+body, #root, .page {
   height: 100%;
 }

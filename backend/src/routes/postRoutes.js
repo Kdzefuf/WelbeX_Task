@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post('/posts', createPost);
 router.get('/posts', getAllPosts);
+router.put('/posts/:id', updatePost);
 router.delete('/posts/:id', deletePost);
 
 module.exports = router;

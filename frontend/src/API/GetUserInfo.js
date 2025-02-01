@@ -17,7 +17,17 @@ class GetUserInfo {
   static async getUserInfo(token) {
     try {
       const response = await APIClient.get(`/users/${token}`);
+      console.log(response.data.id);
       return response.data;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async getUserId(token) {
+    try {
+      const response = await APIClient.get(`/users/${token}`);
+      return response.data.id;
     } catch (e) {
       console.error(e);
     }

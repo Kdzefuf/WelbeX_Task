@@ -61,7 +61,6 @@ exports.updateUser = async (req, res) => {
   }
 }
 
-
 function parseToken(token) {
   const tokenParts = token.split('.');
   const decodedPayload = JSON.parse(atob(tokenParts[1])); 

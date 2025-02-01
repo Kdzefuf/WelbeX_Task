@@ -31,7 +31,7 @@ function Posts() {
           {posts.map(post =>
             <Post
               content={post.content}
-              author_id={post.userId}
+              userId={post.userId}
               author={post.author_name}
               key={post.id}
               id={post.id}

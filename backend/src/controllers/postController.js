@@ -18,11 +18,27 @@ exports.createPost = async (req, res) => {
 exports.getAllPosts = async (req, res) => {
   try {
     const posts = await Post.findAll({raw:true});
-    res.status(200).json(posts);
+    const sortedPosts = sortPosts(posts);
+    res.status(200).json(sortedPosts);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.updatePost = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { title, content } = req.body;
+    const post = await Post.findOne({ where: { id: id } });
+    if (!post) {
+      return res.status(403).json({ message: 'Пост не существует.' });
+    }
+    await post.update({ title, content });
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 exports.deletePost = async (req, res) => {
   try {
@@ -37,6 +53,19 @@ exports.deletePost = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+
+function sortPosts(posts) {
+  return posts.sort((a, b) => {
+    if (a['updatedAt'] < b['updatedAt']) {
+      return 1;
+    }
+    if (a['updatedAt'] > b['updatedAt']) {
+      return -1;
+    }
+    return 0;
+  });
+}
 
 function parseToken(token) {
   const tokenParts = token.split('.');
