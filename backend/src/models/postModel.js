@@ -15,7 +15,7 @@ const Post = sequelize.define('posts', {
     type: DataTypes.TEXT, 
     allowNull: false 
   },
-  media: { 
+  file: { 
     type: DataTypes.STRING, 
     allowNull: true 
   },

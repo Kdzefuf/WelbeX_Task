@@ -5,15 +5,47 @@ import Button from "../components/UI/Button/Button.jsx";
 import UserSignUp from "../API/UserSignUp.js";
 import classes from '../styles/Sign.module.css';
 
-function SignUp() {
+/**
+ * Компонент Register отвечает за регистрацию пользователя.
+ * Он включает в себя поля для ввода электронной почты, имени пользователя и пароля, а также кнопку регистрации.
+ * После успешной регистрации пользователь перенаправляется на домашнюю страницу.
+ *
+ * @returns {JSX.Element} - Представление компонента Register в формате JSX.
+ */
+function Register() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  /**
+   * Обновляет состояние электронной почты с помощью введенного значения.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Событие изменения.
+   */
   const changeEmail = (e) => { setEmail(e.target.value) };
+
+  /**
+   * Обновляет состояние имени пользователя с помощью входного значения.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Событие изменения. 
+   */
   const changeUsername = (e) => { setUsername(e.target.value) };
+
+  /**
+   * Обновляет состояние пароля в соответствии с введенным значением.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Событие изменения. 
+   */
   const changePassword = (e) => { setPassword(e.target.value) };
 
+  /**
+   * Управляет отправкой регистрационной формы.
+   * Предотвращает отправку формы по умолчанию,
+   * отправляет запрос на регистрацию в API регистрации пользователя,
+   * и отображает соответствующие оповещения на основе ответа.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} e - Событие отправки формы.
+   */
   const tryReg = async (e) => {
     e.preventDefault();
 
@@ -47,4 +79,5 @@ function SignUp() {
   )
 }
 
-export default SignUp;
+
+export default Register;

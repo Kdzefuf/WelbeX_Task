@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import classes from "../styles/AddPost.module.css";
 import Button from '../components/UI/Button/Button';
-import AddPostAPI from "../API/AddPost";
 import PutPostData from "../API/PutPostData";
 
+/**
+ * Функциональный компонент для обновления записи в блоге.
+ *
+ * @param {Object} props - Свойства компонента.
+ * @param {Object} props.post - Объект записи в блоге.
+ * @param {Function} props.onClose - Функция обратного вызова, которая будет вызвана при закрытии формы обновления.
+ *
+ * @returns {JSX.Element} - Представление в формате JSX компонента Update Post.
+ */
 function UpdatePost({ post, onClose }) {
     const [topic, setTopic] = useState(post.title || ""); // Заполняем исходным заголовком
     const [postText, setPostText] = useState(post.content || ""); // Заполняем исходным текстом
 
-    // Обработка отправки формы
+    /**
+     * Обрабатывает отправку формы для обновления публикации.
+     *
+     * @param {Event} e - Событие отправки формы.
+     */
     const tryUpdate = async (e) => {
         e.preventDefault();
 

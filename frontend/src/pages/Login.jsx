@@ -5,23 +5,50 @@ import Button from "../components/UI/Button/Button.jsx";
 import UserSignIn from "../API/UserSignIn.js";
 import classes from '../styles/Sign.module.css';
 
+/**
+ * Компонент Login отвечает за обработку функций входа пользователя в систему.
+ * Он отображает форму с полями для ввода имени пользователя и пароля и кнопкой отправки.
+ * После отправки формы он вызывает функцию `попробовать войти` для аутентификации пользователя.
+ *
+ * @returns {JSX.Element} - JSX-представление компонента входа в систему.
+ */
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  /**
+   * Обрабатывает событие изменения поля ввода имени пользователя.
+   * Обновляет состояние "имя пользователя" новым значением.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Событие изменения.
+   */
   const changeUsername = (e) => {
     setUsername(e.target.value);
   };
 
+  /**
+   * Обрабатывает событие изменения поля ввода пароля.
+   * Обновляет состояние "пароль" новым значением.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Событие изменения.
+   */
   const changePassword = (e) => {
     setPassword(e.target.value);
   };
 
+  /**
+   * Обрабатывает событие отправки формы.
+   * Предотвращает отправку формы по умолчанию.
+   * Вызывает метод `Вход пользователя.login` для аутентификации пользователя.
+   * Отображает соответствующие сообщения на основе ответа.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} e - Событие отправки формы.
+   */
   const tryLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await UserSignIn.login(username, password); // Используем метод UserSignIn.login
+      const response = await UserSignIn.login(username, password);
 
       if (response) {
         alert('Вход успешно выполнен!');
@@ -65,5 +92,6 @@ function Login() {
     </div>
   );
 }
+
 
 export default Login;

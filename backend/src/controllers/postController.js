@@ -3,11 +3,13 @@ const Post = require('../models/postModel');
 exports.createPost = async (req, res) => {
   try {
     const { token, title, content } = req.body;
+    const { file } = req.file ? req.file : null;
     const userId = parseToken(token);
     const post = await Post.create({
       title,
       content,
       userId,
+      file
     });
     res.status(200).json(post);
   } catch (error) {
@@ -37,6 +39,19 @@ exports.updatePost = async (req, res) => {
     res.status(200).json(post);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+}
+
+exports.addPostFile = async (id, postData) => {
+  try {
+    const post = await Post.findOne({ where: { id: id } });
+    if (!post) {
+      return res.status(403).json({ message: 'Пост не существует.' });
+    }
+    await post.update({ file: postData });
+    res.status(200).json(post);
+  } catch (err) {
+    throw new Error('Error adding answer file: ' + err.message);
   }
 }
 

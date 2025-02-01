@@ -6,6 +6,12 @@ import Button from "./UI/Button/Button";
 import profile from '../images/profile.svg'
 import PutUserData from "../API/PutUserData";
 
+/**
+ * Компонент содержимого учетной записи отвечает за отображение информации в профиле пользователя и управление ею.
+ * Он позволяет пользователям изменять свое имя пользователя, адрес электронной почты и пароль.
+ *
+ * @returns {JSX.Element} - Компонент содержимого учетной записи.
+ */
 function AccountContent() {
     const [forChange, setForChange] = useState([]);
     const [userData, setUserData] = useState(null);
@@ -13,6 +19,11 @@ function AccountContent() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    /**
+     * Обрабатывает отправку формы для изменения пользовательских данных.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} e - Событие отправки формы.
+     */
     const change = async (e) => {
         e.preventDefault();
         const changes = [];
@@ -35,13 +46,17 @@ function AccountContent() {
                 alert('Ошибка при изменении данных')
             }
 
-
             setUsername('');
             setEmail('');
             setPassword('');
         }
     };
 
+    /**
+     * Извлекает пользовательские данные из API, используя предоставленный токен.
+     *
+     * @param {string} token - Токен аутентификации пользователя.
+     */
     const fetchUserData = async (token) => {
         const data = await GetUserInfo.getUserInfo(token);
         setUserData(data);
@@ -62,6 +77,11 @@ function AccountContent() {
     const [inputUsername, setInputUsername] = useState('');
     const [inputEmail, setInputEmail] = useState('');
 
+    /**
+     * Извлекает и устанавливает начальные входные значения для полей имени пользователя и электронной почты.
+     *
+     * @param {object} usersPlaceholder - Объект данных пользователя.
+     */
     const fetchInputData = usersPlaceholder => {
         setInputUsername(usersPlaceholder);
         setInputEmail(usersPlaceholder);
@@ -97,5 +117,6 @@ function AccountContent() {
         </div>
     )
 }
+
 
 export default AccountContent;
