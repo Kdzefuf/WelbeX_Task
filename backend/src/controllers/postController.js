@@ -3,7 +3,7 @@ const Post = require('../models/postModel');
 exports.createPost = async (req, res) => {
   try {
     const { token, title, content } = req.body;
-    const { file } = req.file ? req.file : null;
+    const { file } = req.file ? req.file : '['+null+']';
     const userId = parseToken(token);
     const post = await Post.create({
       title,
